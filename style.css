@@ -1,0 +1,62 @@
+* { font-family: 'Inter', sans-serif; }
+body { background: #0b0b1a; min-height: 100vh; position: relative; overflow-x: hidden; color: white; }
+html { scroll-behavior: smooth; }
+
+/* BACKGROUND */
+.bg-scene { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; background: #0b0b1a; }
+.bg-image { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1626668893632-6f3a4466d22f?w=1920&auto=format&fit=crop&q=80'); background-size: cover; background-position: center; filter: brightness(0.45) saturate(1.2); transform: scale(1.05); animation: bgZoom 30s infinite alternate; }
+@keyframes bgZoom { to { transform: scale(1.15); } }
+.bg-gradient { position: absolute; inset: 0; background: radial-gradient(circle at 20% 10%, rgba(255, 106, 61, 0.3), transparent 55%), radial-gradient(circle at 80% 90%, rgba(255, 61, 106, 0.28), transparent 55%), linear-gradient(180deg, rgba(11,11,26,0.85) 0%, rgba(11,11,26,0.5) 45%, rgba(11,11,26,0.95) 100%); }
+.bg-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(circle at 50% 40%, black 30%, transparent 80%); -webkit-mask-image: radial-gradient(circle at 50% 40%, black 30%, transparent 80%); }
+.bg-glow { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.5; animation: floatGlow 12s infinite alternate; }
+.bg-glow-1 { width: 550px; height: 550px; background: radial-gradient(circle, #ff6a3d, transparent 70%); top: -150px; left: -120px; }
+.bg-glow-2 { width: 600px; height: 600px; background: radial-gradient(circle, #ff3d6a, transparent 70%); bottom: -180px; right: -140px; animation-delay: -6s; }
+@keyframes floatGlow { from { transform: translate(0, 0) scale(1); } to { transform: translate(40px, -30px) scale(1.1); } }
+.page-content { position: relative; z-index: 1; }
+
+/* NAVBAR */
+.navbar-custom { background: rgba(11,11,26,0.75); backdrop-filter: blur(14px); border-bottom: 3px solid #ff6a3d; position: fixed; top: 0; width: 100%; z-index: 1000; }
+.app-notice { position: fixed; right: 1rem; bottom: 1rem; z-index: 1100; width: min(36rem, calc(100vw - 2rem)); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+.brand-flag { color: #ff6a3d; font-size: 1.8rem; }
+.brand-icon { background: linear-gradient(135deg, #ff6a3d, #f9c74f); -webkit-background-clip: text; color: transparent; font-weight: 800; }
+.nav-link { color: #ffffffcc; font-weight: 500; } .nav-link:hover { color: #ffb347; }
+
+/* BUTTONS */
+.btn-gradient { background: linear-gradient(135deg, #ff6a3d, #ff3d6a); border: none; color: white; font-weight: 600; padding: 0.6rem 1.5rem; border-radius: 60px; transition: 0.2s; box-shadow: 0 6px 14px rgba(255,106,61,0.35); }
+.btn-gradient:hover { background: linear-gradient(135deg, #ff3d6a, #ff6a3d); color: white; transform: scale(1.02); }
+.btn-outline-custom { border: 2px solid #ffffff88; color: white; border-radius: 60px; font-weight: 500; padding: 0.5rem 1.4rem; transition: 0.2s; }
+.btn-outline-custom:hover { background: #ffffff18; border-color: #ffb347; color: #ffb347; }
+
+/* LANDING */
+.landing-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; padding-top: 80px; }
+.landing-title { font-size: clamp(3rem, 8vw, 6rem); font-weight: 800; line-height: 1.1; color: #fff; text-shadow: 0 10px 30px rgba(0,0,0,0.8); margin-bottom: 1rem; }
+.landing-subtitle { font-size: clamp(1rem, 2vw, 1.5rem); color: #d9d6f0; margin-bottom: 2.5rem; text-shadow: 0 4px 10px rgba(0,0,0,0.8); }
+.fade-in-up { opacity: 0; transform: translateY(30px); animation: fadeInUp 1s ease-out forwards; }
+.delay-1 { animation-delay: 0.2s; } .delay-2 { animation-delay: 0.4s; } .delay-3 { animation-delay: 0.6s; }
+@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+.text-gradient { background: linear-gradient(135deg, #ff6a3d, #ff3d6a); -webkit-background-clip: text; color: transparent; }
+
+/* SHOWROOM */
+.showroom-section { min-height: 100vh; padding-top: 100px; background: rgba(11,11,26,0.4); backdrop-filter: blur(4px); border-top: 1px solid rgba(255,255,255,0.1); }
+.car-card { border: 1px solid rgba(255,255,255,0.08); border-radius: 28px; background: rgba(255,255,255,0.96); box-shadow: 0 18px 30px -12px rgba(0,0,0,0.55); transition: 0.25s; overflow: hidden; height: 100%; }
+.car-card:hover { transform: translateY(-6px); border-color: rgba(255,106,61,0.6); box-shadow: 0 28px 40px -12px rgba(255,106,61,0.55); }
+.car-img { height: 200px; object-fit: cover; width: 100%; transition: 0.4s; cursor: pointer; }
+.car-card:hover .car-img { transform: scale(1.03); }
+.category-badge { background: linear-gradient(135deg, #f9c74f, #ffb347); color: #1d1b3a; font-weight: 700; font-size: 0.75rem; padding: 0.35rem 1rem; border-radius: 40px; text-transform: uppercase; }
+.price-tag { font-weight: 800; font-size: 1.25rem; color: #ff3d6a; }
+
+/* MODALS & TABLES */
+.modal-content { border-radius: 32px; border: none; background: #fffffffa; color: #333; }
+.modal-header { border-bottom: 3px solid #ff6a3d; background: #f9f7fe; border-radius: 32px 32px 0 0; }
+.admin-table th { background: #1d1b3a; color: white; font-weight: 600; }
+.category-item { background: white; border-radius: 40px; padding: 0.5rem 1.2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.04); border: 1px solid #eae6f5; font-weight: 600; color: #1d1b3a; }
+.bg-soft-accent { background: #fff7ed; }
+.detail-hero-img { width: 100%; height: 320px; object-fit: cover; display: block; }
+.spec-card { background: linear-gradient(145deg, #fff7ed, #fef2f2); border-radius: 18px; padding: 1rem; text-align: center; border: 1px solid #fde8d7; height: 100%; }
+.spec-icon { font-size: 1.4rem; color: #ff6a3d; margin-bottom: 4px; display: block; }
+.spec-label { font-size: 0.72rem; text-transform: uppercase; color: #7c7a8c; font-weight: 600; }
+.spec-value { font-weight: 700; color: #1d1b3a; font-size: 0.95rem; }
+.spec-list-item { display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding: 8px 0; font-size: 0.95rem; }
+.spec-list-item:last-child { border-bottom: none; }
+.spec-list-label { font-weight: 600; color: #555; }
+.spec-list-value { font-weight: 700; color: #1d1b3a; }
